@@ -1,5 +1,4 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = "../workspace-jdtls/" .. project_name
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -23,7 +22,7 @@ local config = {
         "-configuration",
         "/Users/mac/.local/share/nvim/mason/packages/jdtls/config_mac",
         "-data",
-        workspace_dir,
+        vim.fn.expand("~/.cache/jdtls-workspace") .. project_name,
     },
 
     root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
@@ -50,7 +49,7 @@ local config = {
         vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, bufopts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set("n", "<leader>ca", "<cmd>lua require('jdtls').code_action()<CR>", bufopts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
     end,
 
