@@ -49,7 +49,7 @@ local config = {
         vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, bufopts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-        vim.keymap.set("n", "<leader>ca", "<cmd>lua require('jdtls').code_action()<CR>", bufopts)
+        -- vim.keymap.set("n", "<leader>ca", "<cmd>lua require('jdtls').code_action()<CR>", bufopts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
     end,
 
