@@ -4,7 +4,7 @@ require("bufferline").setup({
     tabpages = false,
     closable = false,
     clickable = false,
-    icons = false,
+    icons = "numbers",
     icon_separator_active = "▎",
     icon_separator_inactive = "▎",
 })
