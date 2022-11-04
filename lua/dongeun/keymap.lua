@@ -14,6 +14,10 @@ keymap("n", "<leader>=", "<C-W>=", opts)
 keymap("n", "<leader>s", ":sp<CR>", opts)
 keymap("n", "<leader>pv", ":wincmd v <bar> :Ex <bar> vertical resize 20<CR>", opts)
 
+-- colorscheme
+keymap("n", "<leader>cc", ":colorscheme tokyonight-day<CR>", opts)
+keymap("n", "<leader>co", ":colorscheme tokyonight <bar> :hi Normal guibg=NONE ctermbg=NONE<CR>", opts)
+
 -- file navigation
 keymap("n", "<leader>pf", ":Files<CR>", opts)
 keymap("n", "<leader>ps", ":Rg<CR>", opts)
@@ -48,3 +52,4 @@ keymap("n", "<leader>7", "<Cmd>BufferGoto 7<CR>", opts)
 keymap("n", "<leader>8", "<Cmd>BufferGoto 8<CR>", opts)
 keymap("n", "<leader>9", "<Cmd>BufferGoto 9<CR>", opts)
 keymap("n", "<leader>0", "<Cmd>BufferLast<CR>", opts)
+keymap("n", "<leader>b", "<Cmd>BufferCloseAllButCurrent<CR>", opts)
