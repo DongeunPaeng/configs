@@ -98,6 +98,16 @@ end
 -- nvim-lspconfig
 require("lspconfig").pyright.setup({ on_attach = on_attach, capabilities = capabilities })
 require("lspconfig").tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
+require("lspconfig").elixirls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        elixirLS = {
+            dialyzerEnabled = false,
+            fetchDeps = false,
+        },
+    },
+})
 require("lspconfig").sumneko_lua.setup({
     on_attach = on_attach,
     capabilities = capabilities,

@@ -28,7 +28,17 @@ local config = {
     root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
 
     settings = {
-        java = {},
+        java = {
+            eclipse = {
+                downloadSources = true,
+            },
+            configuration = {
+                updateBuildConfiguration = "interactive",
+            },
+            maven = {
+                downloadSources = true,
+            },
+        },
     },
 
     init_options = {

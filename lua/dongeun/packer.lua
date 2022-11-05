@@ -35,4 +35,7 @@ return require("packer").startup(function(use)
     -- java
     use("mfussenegger/nvim-jdtls")
     use("mfussenegger/nvim-dap")
+
+    -- elixir
+    use("elixir-editors/vim-elixir")
 end)
