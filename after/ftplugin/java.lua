@@ -3,6 +3,14 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+-- java test
+local bundles = {
+    vim.fn.glob("path/to/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
+}
+
+-- java test
+vim.list_extend(bundles, vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar", 1), "\n"))
+
 local config = {
     cmd = {
         "java",
@@ -11,6 +19,7 @@ local config = {
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
+        "-javaagent:/Users/mac/.local/share/nvim/mason/packages/jdtls/lombok.jar",
         "-Xms1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
@@ -28,21 +37,11 @@ local config = {
     root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
 
     settings = {
-        java = {
-            eclipse = {
-                downloadSources = true,
-            },
-            configuration = {
-                updateBuildConfiguration = "interactive",
-            },
-            maven = {
-                downloadSources = true,
-            },
-        },
+        java = {},
     },
 
     init_options = {
-        bundles = {},
+        bundles = bundles,
     },
 
     on_attach = function(_, bufnr)
@@ -57,6 +56,7 @@ local config = {
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+        require("jdtls").setup_dap({ hotcodereplace = "auto" })
     end,
 
     capabilities = capabilities,
