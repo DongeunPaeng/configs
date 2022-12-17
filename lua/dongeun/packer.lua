@@ -38,4 +38,15 @@ return require("packer").startup(function(use)
 
     -- elixir
     use("elixir-editors/vim-elixir")
+
+    -- file explorer
+    use({ "nvim-telescope/telescope-file-browser.nvim" })
+    use({
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.0",
+        requires = { { "nvim-lua/plenary.nvim" } },
+    })
+
+    -- svelte
+    use("burner/vim-svelte")
 end)

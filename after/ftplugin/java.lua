@@ -1,3 +1,4 @@
+-- TODO: finish extract_variable, etc.
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -56,6 +57,10 @@ local config = {
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+        -- local vopts = { mode = "v", noremap = true, silent = true, buffer = nil, nowait = true }
+        -- vim.keymap.set("v", "<leader>v", require("jdtls").extract_variable(true), vopts)
+        -- vim.keymap.set("v", "<leader>c", require("jdtls").extract_contant(true), vopts)
+        -- vim.keymap.set("v", "<leader>m", require("jdtls").extract_method(true), vopts)
         require("jdtls").setup_dap({ hotcodereplace = "auto" })
     end,
 
