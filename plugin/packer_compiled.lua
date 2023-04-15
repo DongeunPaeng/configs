@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["chatgpt.nvim"] = {
+    loaded = true,
+    path = "/Users/mac/.local/share/nvim/site/pack/packer/start/chatgpt.nvim",
+    url = "https://github.com/terror/chatgpt.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/mac/.local/share/nvim/site/pack/packer/start/cmp-buffer",

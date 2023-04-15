@@ -63,7 +63,6 @@ local config = {
         -- vim.keymap.set("v", "<leader>m", require("jdtls").extract_method(true), vopts)
         require("jdtls").setup_dap({ hotcodereplace = "auto" })
     end,
-
     capabilities = capabilities,
 }
 
